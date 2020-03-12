@@ -1,0 +1,44 @@
+<div class="outer-bc p-10">
+  <h2 class="mb-10 fw-400">Goals</h2>
+  <div class="inner-bc p-20">
+    <div class="d-flex px-1 align-center">
+      <button mat-stroked-button class="secondary-color">+ CREATE A GOAL</button>
+      <div class="ml-auto search-box fs-1-2-em">
+        <input type="text" class="fs-1-2-em">
+        <i class="material-icons">search</i>
+      </div>
+    </div>
+    <table class="w-100 table-styles">
+      <tr class="p-5 border-bottom">
+        <td>
+          <mat-checkbox class="secondary-color"></mat-checkbox>
+        </td>
+        <td *ngFor="let column of columnTitles">
+          {{column}}
+        </td>
+        <td>
+
+        </td>
+      </tr>
+      <tr class="p-5 border-bottom" *ngFor="let row of rows">
+        <td>
+          <mat-checkbox class="secondary-color"></mat-checkbox>
+        </td>
+        <td *ngFor="let column of columnDataNames">
+          <span *ngIf="row[column]">
+            {{row[column]}}
+          </span>
+        </td>
+        <td>
+          <button class="invisible-button fs-1-2-em" [matMenuTriggerFor]="appMenu">
+            &#8942;
+          </button>
+          <mat-menu #appMenu="matMenu">
+            <button mat-menu-item>Utfört</button>
+            <button mat-menu-item>Ta bort</button>
+          </mat-menu>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
